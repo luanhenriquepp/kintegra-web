@@ -1,17 +1,14 @@
 <template>
-    <div>
-        <form class="login" @submit.prevent="login">
+    <div class="container">
+        <form class="formLogin" @submit.prevent="login">
             <h1>Login</h1>
-            <label>Email</label>
-            <label>
-                <input required v-model="email" type="email" placeholder="E-MAIL *"/>
+            <label class="labelEmail">
+                <input required v-model="email" type="email" placeholder="E-MAIL *" class="inputEmail"/>
             </label>
-            <label>Password</label>
-            <label>
+            <label class="labelPassword">
                 <input required v-model="password" type="password" placeholder="PASSWORD *"/>
             </label>
-            <hr/>
-            <button type="submit">Login</button>
+            <button class="btn" type="submit">Login</button>
         </form>
     </div>
 </template>
@@ -21,8 +18,8 @@
         name: 'Login',
         data() {
             return {
-                email: "",
-                password: ""
+                email: '',
+                password: ''
             }
         },
         mounted() {
@@ -33,15 +30,20 @@
                     email: this.email,
                     password: this.password
                 }).then(response => {
-                   return localStorage.setItem('token', response.data.token)
+                    if (response.data.token) {
+                        localStorage.setItem('token', response.data.token);
+                        this.$router.push({name: 'home'});
+                    }
                 }).catch(error => {
                     return alert(error.message)
                 })
-            }
+            },
         }
     }
 </script>
 
 <style scoped>
+
+
 
 </style>
