@@ -44,6 +44,4 @@
 
 <style scoped>
 
-
-
 </style>
