@@ -1,9 +1,9 @@
 <template>
     <div class="container">
-        <h1>Contas a pagar e a receber</h1>
+        <h1>CONTAS A PAGAR E A RECEBER</h1>
 
-        <div class="search-wrapper">
-            <label>
+        <div>
+            <label style="">
                 Filtro:
                 <input type="text" v-model="search" placeholder="PESQUISAR CONTA"/>
             </label>
