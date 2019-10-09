@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Login from './components/Login/Login';
 import Home from './components/Home/Home';
+import Persist from "./components/Persist/Persist";
 
 Vue.use(Router);
 
@@ -17,6 +18,12 @@ export default new Router({
             path: '/home',
             name: 'home',
             component: Home,
+
+        },
+        {
+            path: '/persist',
+            name: 'persist',
+            component: Persist,
 
         }
     ],

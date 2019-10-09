@@ -8,7 +8,7 @@
             <label class="labelPassword">
                 <input required v-model="password" type="password" placeholder="PASSWORD *"/>
             </label>
-            <button class="btn" type="submit">Login</button>
+            <button class="btn" type="submit">ENTRAR</button>
         </form>
     </div>
 </template>
