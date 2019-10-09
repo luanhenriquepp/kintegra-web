@@ -2,12 +2,14 @@
     <div>
         <form class="formLogin" @submit.prevent="createExpense">
             <h1>INCLUIR UMA NOVA CONTA</h1><br>
-            <div >
-                <input type="text"
-                       class="type"
-                       v-model="ds_expense_posted"
-                       id="ds_expense_posted"
-                       placeholder="DESCRIÇÃO*">
+            <div>
+                <label for="ds_expense_posted">
+                    <input type="text"
+                           class="type"
+                           v-model="ds_expense_posted"
+                           id="ds_expense_posted"
+                           placeholder="DESCRIÇÃO*">
+                </label>
 
 
                 <label for="dt_expense_posted">
@@ -16,7 +18,6 @@
                            v-model="dt_expense_posted"
                            id="dt_expense_posted"
                            placeholder="DATA DE VENCIMENTO*">
-
                 </label>
 
                 <label for="expense_posted_value">
@@ -26,7 +27,6 @@
                            id="expense_posted_value"
                            placeholder="VALOR*">
                 </label>
-
 
                 <label class="selectCode">
                     <h3>CÓDIGO*</h3>
@@ -69,6 +69,8 @@
             <button class="btn" type="submit">CADASTRAR</button>
 
             <button class="btn" @click="cancel()">CANCELAR</button>
+
+
         </form>
     </div>
 </template>
@@ -90,12 +92,13 @@
                 payment: '',
             }
         },
-        created() {
 
+        created() {
             this.getPaymentCategory();
             this.getPaymentCode();
             this.getPayment();
         },
+
         mounted() {
         },
         methods: {
@@ -118,6 +121,7 @@
                     this.$router.push({name: 'home'});
                 })
             },
+
             getPaymentCategory() {
                 this.$http.get(process.env.VUE_APP_API + '/api/payment-category', {
                     headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')},
@@ -147,6 +151,7 @@
                     return alert(error.message)
                 })
             },
+
             cancel() {
                 this.$router.push({name: 'home'})
             }

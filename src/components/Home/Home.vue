@@ -19,8 +19,8 @@
             <p>Status: {{`${expense.expense_posted_status === 1 ? 'Pago' : 'Pendente'}`}}</p>
             <br>
             <button @click="deleteExpense(expense.cd_expense_posted)" class="btn">DELETAR</button>
-
             <button @click="newExpense()" class="btn">NOVO</button>
+            <button @click="finishExpense(expense.cd_expense_posted)" class="btn">REALIZAR BAIXA</button>
         </div>
 
     </div>
@@ -89,13 +89,31 @@
                     })
                 }
             },
+
             checkToken(token) {
                 if (token.data.error === "TOKEN_EXPIRED") {
                     this.$router.push({name: 'login'});
                 }
             },
+
             newExpense() {
                 this.$router.push({name: 'persist'});
+            },
+
+            finishExpense(id) {
+                this.$http.put(process.env.VUE_APP_API + `/api/expense-posted/${id}`, {
+                    expense_posted_status: 1,
+
+                }, {
+                    headers: {
+                        'Authorization': 'Bearer ' + localStorage.getItem('token')
+                    }
+
+                },).then(response => {
+                    alert(response.data.message);
+                    this.fetchExpense();
+                    this.$router.push({name: 'home'});
+                })
             }
         },
         computed: {
