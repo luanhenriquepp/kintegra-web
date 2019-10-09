@@ -1,11 +1,12 @@
 <template>
   <div class="hello">
+    <p>Home</p>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Dashboard',
+  name: 'Home',
   props: {
     msg: String
   }
