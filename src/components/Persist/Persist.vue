@@ -1,8 +1,8 @@
 <template>
-    <div class="container">
-        <h1>Incluir uma nova conta</h1>
+    <div>
         <form class="formLogin" @submit.prevent="createExpense">
-            <div class="content">
+            <h1>INCLUIR UMA NOVA CONTA</h1><br>
+            <div >
                 <input type="text"
                        class="type"
                        v-model="ds_expense_posted"
@@ -30,16 +30,7 @@
 
                 <label class="selectCode">
                     <h3>CÓDIGO*</h3>
-                    <select v-model="cd_payment_code" style=" display: flex;
-                        margin-bottom: 20px;
-                        border: solid #ddd;
-                        border-radius: 2px;
-                        height: 45px;
-                        padding: 0 15px;
-                        font-size: 18px;
-                        color: #444;
-                        font-weight: bold;
-                         font-family: 'Roboto', Arial, Helvetica, sans-serif;">
+                    <select v-model="cd_payment_code">
                         <option v-bind:value="null">SELECIONE</option>
                         <option v-for="code in this.payment_code"
                                 v-bind:key="code.cd_payment_code"
@@ -51,16 +42,7 @@
 
                 <label class="selectCategory">
                     <h3>CATEGORIA*</h3>
-                    <select v-model="cd_payment_category" style=" display: flex;
-                        margin-bottom: 20px;
-                        border: solid #ddd;
-                        border-radius: 2px;
-                        height: 45px;
-                        padding: 0 15px;
-                        font-size: 18px;
-                        color: #444;
-                        font-weight: bold;
-                         font-family: 'Roboto', Arial, Helvetica, sans-serif;">
+                    <select v-model="cd_payment_category">
                         <option v-bind:value="null">SELECIONE</option>
                         <option v-for="category in this.payment_category"
                                 v-bind:key="category.cd_payment_category"
@@ -72,17 +54,7 @@
 
                 <label class="selectCategory">
                     <h3>FORMA DE PAGAMENTO*</h3>
-                    <select v-model="cd_payment"
-                            style=" display: flex;
-                        margin-bottom: 20px;
-                        border: solid #ddd;
-                        border-radius: 2px;
-                        height: 45px;
-                        padding: 0 15px;
-                        font-size: 18px;
-                        color: #444;
-                        font-weight: bold;
-                        font-family: 'Roboto', Arial, Helvetica, sans-serif;">
+                    <select v-model="cd_payment">
                         <option v-bind:value="null">SELECIONE</option>
                         <option v-for="payment in this.payment"
                                 v-bind:key="payment.cd_payment"
@@ -92,7 +64,7 @@
                     </select>
                 </label>
             </div>
-
+            <br>
 
             <button class="btn" type="submit">CADASTRAR</button>
 

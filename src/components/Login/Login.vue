@@ -1,7 +1,7 @@
 <template>
-    <div class="container">
+    <div class="content">
         <form class="formLogin" @submit.prevent="login">
-            <h1>Login</h1>
+            <h1>LOGIN</h1>
             <label class="labelEmail">
                 <input required v-model="email" type="email" placeholder="E-MAIL *" class="inputEmail"/>
             </label>
