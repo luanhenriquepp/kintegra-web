@@ -1,4 +1,3 @@
-# desafio-kintegra-frontend
 
 ## Project setup
 ```
